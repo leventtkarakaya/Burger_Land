@@ -37,7 +37,7 @@ const Burger = ({ burger }) => {
         height={270}
         alt="burger"
         priority={1}
-        className="lg:group-hover:translate-y-3 duration-300 transition-all lg:h-full lg:max-h-[20rem]"
+        className="lg:group-hover:translate-y-3 duration-300 transition-all h-full md:max-h-[15rem] burger-screen lg:max-h-[20rem] cursor-pointer"
       />
       {/* title */}
       <div onClick={openModal}>
@@ -50,17 +50,29 @@ const Burger = ({ burger }) => {
         {burger.description}
       </div>
       {/* price & btn */}
-      <div className="mb-6 flex items-center justify-between">
+      <div
+        onClick={openModal}
+        className="mb-6 flex items-center justify-between text-red-200"
+      >
         {/* price => hidden (sm) - visible (lg) */}
-        <div className="hidden lg:flex text-xl font-semibold">
+        <div
+          onClick={openModal}
+          className="hidden lg:flex text-xl font-semibold"
+        >
           start at {burger.priceSm}
         </div>
         {/* btn => hidden (sm) - visible (lg  ) */}
-        <button className="hidden-btn lg:flex gradient text-white rounded-lg btn-sm font-semibold text-sm">
+        <button
+          onClick={openModal}
+          className="hidden-btn lg:flex gradient text-white rounded-lg btn-sm font-semibold text-sm"
+        >
           choose {burger.priceSm}
         </button>
         {/* btn => visible (sm) - hidden (lg) */}
-        <button className="btn btn-sm gradient lg:hidden w-full text-sm px-3">
+        <button
+          onClick={openModal}
+          className="btn btn-sm gradient lg:hidden w-full text-sm px-3"
+        >
           Start at {burger.priceSm}
         </button>
       </div>
@@ -75,9 +87,9 @@ const Burger = ({ burger }) => {
         {/* close modal icons */}
         <div
           className="absolute right-2 top-2 z-30 hover:scale-110 cursor-pointer duration-200"
-          onClick={openModal}
+          onClick={closeModal}
         >
-          <IoCloseOutline className="text-4xl text-red" />
+          <IoCloseOutline className="text-4xl text-red-600" />
         </div>
         {/* burger details */}
         <BurgerDetails burger={burger} modal={modal} setModal={setModal} />
