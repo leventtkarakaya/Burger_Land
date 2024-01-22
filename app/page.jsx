@@ -1,4 +1,4 @@
-import Burger from "@/components/Burger";
+import Buger from "@/components/Burger";
 
 const burger = [
   {
@@ -338,15 +338,18 @@ const burger = [
     ],
   },
 ];
+
 export default function Home() {
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-1 gap-[15px] sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:gap-[30px] py-12">
-        {burger.length > 1 &&
-          burger.map((burger, index) => {
-            return <Burger key={index} burger={burger} />;
-          })}
+    <section>
+      <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 container mx-auto my-auto">
+          {burger.length > 1 &&
+            burger.map((burger, index) => {
+              return <Buger key={index} burger={burger} />;
+            })}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

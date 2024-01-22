@@ -1,55 +1,50 @@
-"use client";
-
 import { useState, useEffect, useContext } from "react";
 
 import Image from "next/image";
 
-import { CartContext } from "@/CartContext/CartContext";
+import { CartContext } from "@/CreateContex/CreateContex";
+import CrustSelections from "@/components/CrustSelections";
+import SizeSelections from "./SizeSelections";
+import Souce from "./Souce";
 
-const BurgerDetails = ({ modal, setModal, burger }) => {
-  // burger size state
+const BurgerDetails = ({ burger, modal, setModal }) => {
+  // size state
   const [size, setSize] = useState("small");
-  // burger doug state
-  const [doug, setDoug] = useState("Traditional");
-  // burger souce state
-  const [additionalSouce, setAddItionalSouce] = useState([]);
-  // burger souce price state
-  const [additionalSoucePrice, setAddItionalSoucePrice] = useState(0);
+  // crust state
+  const [crust, setCrust] = useState("Tradtional");
+  // souce state
+  const [souceAdditional, setSouceAdditional] = useState([]);
+  // souce price state
+  const [souceAdditionalPrice, setSouceAdditionalPrice] = useState(0);
   // price state
   const [price, setPrice] = useState(0);
-  // set the price based on the burger size
+
   useEffect(() => {
     size === "small"
-      ? parseFloat(setPrice(burger.priceSm) + additionalSoucePrice).toFixed(2)
+      ? setPrice(parseFloat(burger.priceSm + souceAdditionalPrice).toFixed(2))
       : size === "medium"
-      ? parseFloat(setPrice(burger.priceMd) + additionalSoucePrice).toFixed(2)
+      ? setPrice(parseFloat(burger.priceMd + souceAdditionalPrice).toFixed(2))
       : size === "large"
-      ? parseFloat(setPrice(burger.priceLg) + additionalSoucePrice).toFixed(2)
+      ? setPrice(parseFloat(burger.priceLg + souceAdditionalPrice).toFixed(2))
       : null;
-  }, [
-    size,
-    burger.priceSm,
-    burger.priceMd,
-    burger.priceLg,
-    additionalSoucePrice,
-  ]);
+  }, [souceAdditionalPrice, burger, size]);
 
-  // set additional souce price
   useEffect(() => {
-    if (additionalSouce.length > 0) {
-      const newItem = additionalSouce.reduce((a, b) => {
+    if (souceAdditional.length > 0) {
+      const souce = souceAdditional.reduce((a, b) => {
         return a + b.price;
-      }, 0);
-      setAddItionalSoucePrice(newItem);
+      });
+      setSouceAdditionalPrice(souce);
     } else {
-      setAddItionalSoucePrice(0);
+      setSouceAdditionalPrice(0);
     }
-  }, [additionalSouce, setAddItionalSoucePrice]);
+  }, [souceAdditional, souceAdditionalPrice]);
 
   return (
     <div>
-      <div className="">
-        {/* burger */}
+      {/* top */}
+      <div>
+        {/* burger image */}
         <div>
           <Image
             src={burger.image}
@@ -59,29 +54,49 @@ const BurgerDetails = ({ modal, setModal, burger }) => {
             priority={1}
           />
         </div>
-        {/* details */}
-        <div className="bg-indigo-500">
+      </div>
+      {/* details */}
+      <div className="bg-indigo-600">
+        <div>
           <div>
-            <div>
-              {/* name */}
-              <div className="font-semibold">
-                <h2 className="capitalize text-3xl mb-1">{burger.name}</h2>
-              </div>
-              {/* size & doug text */}
+            {/* name */}
+            <div className="font-semibold">
+              <h2 className="capitalize text-3xl mb-1">{burger.name}</h2>
+              {/* size & size text */}
               <div>
                 <span>
                   {size === "small"
-                    ? "25"
+                    ? "150"
                     : size === "medium"
-                    ? "30"
+                    ? "200"
                     : size === "large"
-                    ? "35"
+                    ? "250"
                     : null}
                 </span>
-                <span> {doug} Doug</span>
+                <span>gr , {crust} crust</span>
               </div>
             </div>
+            {/* size selections */}
+            <SizeSelections />
+            {/* crust selections */}
+            <CrustSelections />
+            {/* souces */}
+            <div>Choose Souce</div>
+            {/* Souce list */}
+            <div>
+              {burger.souce.length > 0 &&
+                burger.souce.map((souce, index) => {
+                  return <Souce key={index} burger={souce} />;
+                })}
+            </div>
           </div>
+        </div>
+        {/* add to cart btn */}
+        <div>
+          <button>
+            <div>Şunun için sepete ekle:</div>
+            <div>Tl {price}</div>
+          </button>
         </div>
       </div>
     </div>

@@ -19,9 +19,9 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        bangers: [`var(--font-bangers)`, "sans-serif"],
-        quicksand: [`var(--font-quicksand)`, "sans-serif"],
-        robotoCondensed: [`var(--font-robotoCondensed)`, "sans-serif"],
+        banger: [`var(--font-Banger)`, "sans-serif"],
+        quicksand: [`var(--font-QuickSand)`, "sans-serif"],
+        robotoCondensed: [`var(--font-RobotoCondensed)`, "sans-serif"],
       },
     },
   },
