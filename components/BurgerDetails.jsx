@@ -11,7 +11,7 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
   // size state
   const [size, setSize] = useState("small");
   // crust state
-  const [crust, setCrust] = useState("Tradtional");
+  const [crust, setCrust] = useState("Geneleksel");
   // souce state
   const [souceAdditional, setSouceAdditional] = useState([]);
   // souce price state
@@ -41,22 +41,23 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
   }, [souceAdditional, souceAdditionalPrice]);
 
   return (
-    <div>
+    <div className="flex flex-col lg:flex-row lg:gap-x-8 h-full md:p-8 mx-auto container">
       {/* top */}
-      <div>
+      <div className="lg:flex-1 flex justify-center items-center">
         {/* burger image */}
-        <div>
+        <div className="max-w-[300px] lg:max-w-none mt-6 lg:mt-0">
           <Image
             src={burger.image}
             width={450}
             height={450}
             alt="burger"
             priority={1}
+            className="burger-screen mx-auto relative"
           />
         </div>
       </div>
       {/* details */}
-      <div className="bg-indigo-600">
+      <div className="flex flex-col flex-1">
         <div>
           <div>
             {/* name */}
@@ -73,11 +74,11 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
                     ? "250"
                     : null}
                 </span>
-                <span>gr , {crust} crust</span>
+                <span>gr , {crust} Hamur</span>
               </div>
             </div>
             {/* size selections */}
-            <SizeSelections />
+            <SizeSelections burger={burger} size={size} setSize={setSize} />
             {/* crust selections */}
             <CrustSelections />
             {/* souces */}
@@ -93,9 +94,9 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
         </div>
         {/* add to cart btn */}
         <div>
-          <button>
-            <div>Şunun için sepete ekle:</div>
-            <div>Tl {price}</div>
+          <button className="btn btn-lg gradient w-full  flex justify-center gap-x-2">
+            <div>Sepete ekle:</div>
+            <div> {price} TL</div>
           </button>
         </div>
       </div>

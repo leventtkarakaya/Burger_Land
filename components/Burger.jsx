@@ -7,6 +7,7 @@ import Image from "next/image";
 import { IoCloseOutline } from "react-icons/io5";
 
 import Modal from "react-modal";
+
 import BurgerDetails from "./BurgerDetails";
 
 Modal.setAppElement("body");
@@ -62,21 +63,21 @@ const Buger = ({ burger }) => {
             onClick={openModal}
             className="hidden lg:flex text-xl font-semibold"
           >
-            start at {burger.priceSm}
+            Başlayan {burger.priceSm}
           </div>
           {/* btn => hidden (sm) - visible (lg  ) */}
           <button
             onClick={openModal}
             className="hidden-btn lg:flex gradient text-white rounded-lg btn-sm font-semibold text-sm"
           >
-            choose {burger.priceSm}
+            Terçih {burger.priceSm}
           </button>
           {/* btn => visible (sm) - hidden (lg) */}
           <button
             onClick={openModal}
             className="btn btn-sm gradient lg:hidden w-full text-sm px-3"
           >
-            Start at {burger.priceSm}
+            Başlayan : {burger.priceSm}
           </button>
         </div>
       </div>

@@ -344,7 +344,7 @@ export default function Home() {
     <section>
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 container mx-auto my-auto">
-          {burger.length > 1 &&
+          {burger.length > 0 &&
             burger.map((burger, index) => {
               return <Buger key={index} burger={burger} />;
             })}
