@@ -2,9 +2,10 @@ import Image from "next/image";
 
 const SizeSelections = ({ burger, setSize, size }) => {
   return (
-    <div className="mx-auto max-w-sm">
+    <div className="mx-auto max-w-sm lg:max-w-none flex items-center justify-center lg:justify-start">
       {/* size */}
-      <div className="flex flex-1 container gap-x-20 justify-center items-center">
+      <div className="flex flex-1 container gap-x-20 justify-center items-baseline mb-10">
+        {/* small  */}
         <label>
           <Image
             src={burger.image}
@@ -16,7 +17,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
               size === "small"
                 ? "border-2 border-red-500 p-1 rounded-full"
                 : "border-transparent filter saturate-50"
-            } mb-2`}
+            } mt-5 `}
           />
           <input
             type="radio"
@@ -28,6 +29,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
           />
           <span className="ml-2">Small</span>
         </label>
+        {/* medium */}
         <label>
           <Image
             src={burger.image}
@@ -39,7 +41,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
               size === "medium"
                 ? "border-2 border-red-500 rounded-full"
                 : "border-transparent filter saturate-50"
-            } mb-1`}
+            }`}
           />
           <input
             type="radio"
@@ -51,6 +53,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
           />
           <span className="ml-1">Medium</span>
         </label>
+        {/* large */}
         <label>
           <Image
             src={burger.image}
@@ -72,7 +75,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
             checked={size === "large"}
             className="appearance-none"
           />
-          <span className="ml-4">Large</span>
+          <span className="ml-5">Large</span>
         </label>
       </div>
     </div>

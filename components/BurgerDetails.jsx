@@ -80,14 +80,21 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
             {/* size selections */}
             <SizeSelections burger={burger} size={size} setSize={setSize} />
             {/* crust selections */}
-            <CrustSelections />
+            <CrustSelections crust={crust} setCrust={setCrust} />
             {/* souces */}
-            <div>Choose Souce</div>
+            <div className="mb-4 text-xl font-semibold">Choose Souce</div>
             {/* Souce list */}
-            <div>
+            <div className="flex flex-1 flex-wrap gap-2 py-1 justify-center lg:justify-start">
               {burger.souce.length > 0 &&
                 burger.souce.map((souce, index) => {
-                  return <Souce key={index} burger={souce} />;
+                  return (
+                    <Souce
+                      key={index}
+                      souce={souce}
+                      souceAdditional={souceAdditional}
+                      setSouceAdditional={setSouceAdditional}
+                    />
+                  );
                 })}
             </div>
           </div>
