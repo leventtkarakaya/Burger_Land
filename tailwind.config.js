@@ -18,6 +18,17 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        image: "url('/bg-image.png')",
+        image1: "url('/pattern.png')",
+      },
+      backgroundSize: {
+        "size-200": "200% 200%",
+      },
+      backgroundPosition: {
+        "pos-0": "0% 0%",
+        "pos-100": "100% 100%",
+      },
       fontFamily: {
         banger: [`var(--font-Banger)`, "sans-serif"],
         quicksand: [`var(--font-QuickSand)`, "sans-serif"],

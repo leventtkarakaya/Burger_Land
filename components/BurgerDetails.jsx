@@ -19,6 +19,8 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
   // price state
   const [price, setPrice] = useState(0);
 
+  console.log(souceAdditional);
+
   useEffect(() => {
     size === "small"
       ? setPrice(parseFloat(burger.priceSm + souceAdditionalPrice).toFixed(2))
@@ -31,14 +33,14 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
 
   useEffect(() => {
     if (souceAdditional.length > 0) {
-      const souce = souceAdditional.reduce((a, b) => {
+      const soucer = souceAdditional.reduce((a, b) => {
         return a + b.price;
-      });
-      setSouceAdditionalPrice(souce);
+      }, 0);
+      setSouceAdditionalPrice(soucer);
     } else {
       setSouceAdditionalPrice(0);
     }
-  }, [souceAdditional, souceAdditionalPrice]);
+  }, [souceAdditional, setSouceAdditionalPrice]);
 
   return (
     <div className="flex flex-col lg:flex-row lg:gap-x-8 h-full md:p-8 mx-auto container">

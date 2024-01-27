@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner";
 import Buger from "@/components/Burger";
 
 const burger = [
@@ -14,7 +15,7 @@ const burger = [
       {
         image: "/mini-aci-sos.png",
         name: "Hot sos",
-        price: "5",
+        price: 5,
       },
       {
         image: "/mini-bbq.png",
@@ -56,7 +57,7 @@ const burger = [
       {
         image: "/mini-aci-sos.png",
         name: "Hot sos",
-        price: "5",
+        price: 5,
       },
       {
         image: "/mini-bbq.png",
@@ -98,7 +99,7 @@ const burger = [
       {
         image: "/mini-aci-sos.png",
         name: "Hot sos",
-        price: "5",
+        price: 5,
       },
       {
         image: "/mini-bbq.png",
@@ -140,7 +141,7 @@ const burger = [
       {
         image: "/mini-aci-sos.png",
         name: "Hot sos",
-        price: "5",
+        price: 5,
       },
       {
         image: "/mini-bbq.png",
@@ -182,7 +183,7 @@ const burger = [
       {
         image: "/mini-aci-sos.png",
         name: "Hot sos",
-        price: "5",
+        price: 5,
       },
       {
         image: "/mini-bbq.png",
@@ -224,7 +225,7 @@ const burger = [
       {
         image: "/mini-aci-sos.png",
         name: "Hot sos",
-        price: "5",
+        price: 5,
       },
       {
         image: "/mini-bbq.png",
@@ -266,7 +267,7 @@ const burger = [
       {
         image: "/mini-aci-sos.png",
         name: "Hot sos",
-        price: "5",
+        price: 5,
       },
       {
         image: "/mini-bbq.png",
@@ -308,7 +309,7 @@ const burger = [
       {
         image: "/mini-aci-sos.png",
         name: "Hot sos",
-        price: "5",
+        price: 5,
       },
       {
         image: "/mini-bbq.png",
@@ -342,6 +343,7 @@ const burger = [
 export default function Home() {
   return (
     <section>
+      <Banner />
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 container mx-auto my-auto">
           {burger.length > 0 &&

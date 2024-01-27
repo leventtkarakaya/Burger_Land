@@ -4,6 +4,8 @@ import "./globals.css";
 import { Roboto_Condensed, Bangers, Quicksand } from "next/font/google";
 
 import CardProvider from "@/CreateContex/CreateContex";
+import Nav from "@/components/Nav";
+import CartMobileIcon from "@/components/CartMobileIcon";
 
 const Banger = Bangers({
   subsets: ["latin"],
@@ -35,7 +37,9 @@ export default function RootLayout({ children }) {
         <body
           className={`${QuickSand.variable} ${RobotoCondensed.variable} ${Banger.variable}`}
         >
+          <Nav />
           {children}
+          <CartMobileIcon />
         </body>
       </html>
     </CardProvider>

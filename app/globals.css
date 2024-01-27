@@ -85,3 +85,9 @@
     @apply w-[450px];
   }
 }
+
+@layer utilities {
+  .bg-amount {
+    @apply bg-[#000037];
+  }
+}
