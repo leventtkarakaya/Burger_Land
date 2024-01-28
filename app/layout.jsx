@@ -4,8 +4,8 @@ import "./globals.css";
 import { Roboto_Condensed, Bangers, Quicksand } from "next/font/google";
 
 import CardProvider from "@/CreateContex/CreateContex";
-import Nav from "@/components/Nav";
 import CartMobileIcon from "@/components/CartMobileIcon";
+import Nav from "@/components/Nav";
 
 const Banger = Bangers({
   subsets: ["latin"],
