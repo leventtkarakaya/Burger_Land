@@ -8,6 +8,7 @@ import SizeSelections from "./SizeSelections";
 import Souce from "./Souce";
 
 const BurgerDetails = ({ burger, modal, setModal }) => {
+  const { isOpen } = useContext(CartContext);
   // size state
   const [size, setSize] = useState("small");
   // crust state
@@ -18,8 +19,8 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
   const [souceAdditionalPrice, setSouceAdditionalPrice] = useState(0);
   // price state
   const [price, setPrice] = useState(0);
-
-  console.log(souceAdditional);
+  // AddToCart
+  const { AddToCart } = useContext(CartContext);
 
   useEffect(() => {
     size === "small"
@@ -43,9 +44,9 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
   }, [souceAdditional, setSouceAdditionalPrice]);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:gap-x-8 h-full md:p-8 mx-auto container">
+    <div className="container flex flex-col h-full mx-auto lg:flex-row lg:gap-x-8 md:p-8">
       {/* top */}
-      <div className="lg:flex-1 flex justify-center items-center">
+      <div className="flex items-center justify-center lg:flex-1">
         {/* burger image */}
         <div className="max-w-[300px] lg:max-w-none mt-6 lg:mt-0">
           <Image
@@ -54,17 +55,17 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
             height={450}
             alt="burger"
             priority={1}
-            className="burger-screen mx-auto relative"
+            className="relative mx-auto burger-screen"
           />
         </div>
       </div>
       {/* details */}
       <div className="flex flex-col flex-1">
-        <div>
-          <div>
+        <div className="flex-1 p-2 text-center lg:text-left">
+          <div className="flex-1 overflow-y-scroll h-[46vh] lg:h-[60vh] scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white pr-2">
             {/* name */}
             <div className="font-semibold">
-              <h2 className="capitalize text-3xl mb-1">{burger.name}</h2>
+              <h2 className="mb-1 text-3xl capitalize">{burger.name}</h2>
               {/* size & size text */}
               <div>
                 <span>
@@ -86,7 +87,7 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
             {/* souces */}
             <div className="mb-4 text-xl font-semibold">Choose Souce</div>
             {/* Souce list */}
-            <div className="flex flex-1 flex-wrap gap-2 py-1 justify-center lg:justify-start">
+            <div className="flex flex-wrap justify-center flex-1 gap-2 py-1 lg:justify-start ">
               {burger.souce.length > 0 &&
                 burger.souce.map((souce, index) => {
                   return (
@@ -102,8 +103,21 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
           </div>
         </div>
         {/* add to cart btn */}
-        <div>
-          <button className="btn btn-lg gradient w-full  flex justify-center gap-x-2">
+        <div className="flex items-center h-full px-2 lg:items-end">
+          <button
+            onClick={() =>
+              AddToCart(
+                burger.id,
+                burger.image,
+                burger.name,
+                price,
+                souceAdditional,
+                size,
+                crust
+              )
+            }
+            className="flex justify-center w-full btn btn-lg gradient gap-x-2"
+          >
             <div>Sepete ekle:</div>
             <div> {price} TL</div>
           </button>

@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const SizeSelections = ({ burger, setSize, size }) => {
   return (
-    <div className="mx-auto max-w-sm lg:max-w-none flex items-center justify-center lg:justify-start">
+    <div className="flex items-center justify-center max-w-sm mx-auto lg:max-w-none lg:justify-start">
       {/* size */}
-      <div className="flex flex-1 container gap-x-20 justify-center items-baseline mb-10">
+      <div className="container flex items-baseline justify-center flex-1 mb-10 gap-x-20">
         {/* small  */}
         <label>
           <Image
@@ -27,7 +27,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
             onChange={(e) => setSize(e.target.value)}
             checked={size === "small"}
           />
-          <span className="ml-2">Small</span>
+          <span className="lg:ml-2">Small</span>
         </label>
         {/* medium */}
         <label>
@@ -75,7 +75,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
             checked={size === "large"}
             className="appearance-none"
           />
-          <span className="ml-5">Large</span>
+          <span className="lg:ml-5">Large</span>
         </label>
       </div>
     </div>

@@ -6,6 +6,7 @@ import { Roboto_Condensed, Bangers, Quicksand } from "next/font/google";
 import CardProvider from "@/CreateContex/CreateContex";
 import CartMobileIcon from "@/components/CartMobileIcon";
 import Nav from "@/components/Nav";
+import CartMobile from "@/components/CartMobile";
 
 const Banger = Bangers({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
           <Nav />
           {children}
           <CartMobileIcon />
+          <CartMobile />
         </body>
       </html>
     </CardProvider>

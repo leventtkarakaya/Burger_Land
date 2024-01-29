@@ -41,7 +41,7 @@ const Souce = ({ souce, souceAdditional, setSouceAdditional }) => {
         priority={1}
       />
       {/* souce name */}
-      <div className="text-sm capitalize text-center font-medium">
+      <div className="text-sm font-medium text-center capitalize">
         {souce.name}
       </div>
       {/* checkbox */}
