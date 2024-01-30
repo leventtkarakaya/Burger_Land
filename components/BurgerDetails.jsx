@@ -10,7 +10,7 @@ import Souce from "./Souce";
 const BurgerDetails = ({ burger, modal, setModal }) => {
   const { isOpen } = useContext(CartContext);
   // size state
-  const [size, setSize] = useState("small");
+  const [size, setSize] = useState("Küçük");
   // crust state
   const [crust, setCrust] = useState("Geneleksel");
   // souce state
@@ -23,11 +23,11 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
   const { AddToCart } = useContext(CartContext);
 
   useEffect(() => {
-    size === "small"
+    size === "Küçük"
       ? setPrice(parseFloat(burger.priceSm + souceAdditionalPrice).toFixed(2))
-      : size === "medium"
+      : size === "Orta"
       ? setPrice(parseFloat(burger.priceMd + souceAdditionalPrice).toFixed(2))
-      : size === "large"
+      : size === "Büyük"
       ? setPrice(parseFloat(burger.priceLg + souceAdditionalPrice).toFixed(2))
       : null;
   }, [souceAdditionalPrice, burger, size]);
@@ -69,11 +69,11 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
               {/* size & size text */}
               <div>
                 <span>
-                  {size === "small"
+                  {size === "Küçük"
                     ? "150"
-                    : size === "medium"
+                    : size === "Orta"
                     ? "200"
-                    : size === "large"
+                    : size === "Büyük"
                     ? "250"
                     : null}
                 </span>

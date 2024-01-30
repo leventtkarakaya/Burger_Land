@@ -11,10 +11,10 @@ const SizeSelections = ({ burger, setSize, size }) => {
             src={burger.image}
             width={60}
             height={60}
-            alt="burger small"
+            alt="Küçük Burger"
             priority={1}
             className={`${
-              size === "small"
+              size === "Küçük"
                 ? "border-2 border-red-500 p-1 rounded-full"
                 : "border-transparent filter saturate-50"
             } mt-5 `}
@@ -22,60 +22,60 @@ const SizeSelections = ({ burger, setSize, size }) => {
           <input
             type="radio"
             name="size"
-            value="small"
+            value="Küçük"
             className="appearance-none"
             onChange={(e) => setSize(e.target.value)}
-            checked={size === "small"}
+            checked={size === "Küçük"}
           />
-          <span className="lg:ml-2">Small</span>
+          <span className="lg:ml-2">Küçük</span>
         </label>
         {/* medium */}
         <label>
           <Image
             src={burger.image}
-            width={70}
-            height={70}
-            alt="burger medium"
+            width={65}
+            height={65}
+            alt="burger Orta"
             priority={1}
             className={`${
-              size === "medium"
-                ? "border-2 border-red-500 rounded-full"
+              size === "Orta"
+                ? "border-2 border-red-500 p-1 rounded-full"
                 : "border-transparent filter saturate-50"
             }`}
           />
           <input
             type="radio"
             name="size"
-            value="medium"
+            value="Orta"
             onChange={(e) => setSize(e.target.value)}
-            checked={size === "medium"}
+            checked={size === "Orta"}
             className="appearance-none"
           />
-          <span className="ml-1">Medium</span>
+          <span className="ml-1">Orta</span>
         </label>
         {/* large */}
         <label>
           <Image
             src={burger.image}
-            width={80}
-            height={80}
-            alt="burger large"
+            width={75}
+            height={75}
+            alt="burger Büyük"
             priority={1}
             className={`${
-              size === "large"
-                ? "border-2 rounded-full border-red-500"
+              size === "Büyük"
+                ? "border-2 rounded-full border-red-500 p-1"
                 : " border-transparent filter saturate-50"
             }`}
           />
           <input
             type="radio"
             name="size"
-            value="large"
+            value="Büyük"
             onChange={(e) => setSize(e.target.value)}
-            checked={size === "large"}
+            checked={size === "Büyük"}
             className="appearance-none"
           />
-          <span className="lg:ml-5">Large</span>
+          <span className="">Büyük</span>
         </label>
       </div>
     </div>

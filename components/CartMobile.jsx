@@ -19,7 +19,13 @@ const CartMobile = () => {
       {/* Top */}
       <CartTop />
       {/* cart items */}
-      <div>
+      <div
+        className={`flex flex-col gap-y-5 mt-8 px-1 h-[60vh] ${
+          cart.length >= 3
+            ? "overflow-scroll overflow-x-hidden scrollbar-thin scrollbar-thumb-red-400 scrollbar-track-zinc-200 "
+            : "overflow-hidden"
+        }`}
+      >
         {cart.map((burger, index) => {
           return <CartItem key={index} burger={burger} />;
         })}
