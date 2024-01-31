@@ -38,7 +38,7 @@ const CartItem = ({ burger }) => {
                 <BiMinus />
               </div>
               <div className="font-semibold flex flex-1 max-w-[30px] justify-center items-center text-lg">
-                1
+                {burger.amount}
               </div>
               <div className="w-[18px] h-[18px] flex justify-center items-center cursor-pointer text-white rounded-full gradient">
                 <BiPlus />

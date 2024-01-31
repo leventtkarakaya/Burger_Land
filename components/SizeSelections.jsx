@@ -27,7 +27,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
             onChange={(e) => setSize(e.target.value)}
             checked={size === "Küçük"}
           />
-          <span className="lg:ml-2">Küçük</span>
+          <span className="lg:ml-[6px]">Küçük</span>
         </label>
         {/* medium */}
         <label>
@@ -51,7 +51,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
             checked={size === "Orta"}
             className="appearance-none"
           />
-          <span className="ml-1">Orta</span>
+          <span className=" lg:ml-3">Orta</span>
         </label>
         {/* large */}
         <label>
@@ -75,7 +75,7 @@ const SizeSelections = ({ burger, setSize, size }) => {
             checked={size === "Büyük"}
             className="appearance-none"
           />
-          <span className="">Büyük</span>
+          <span className="lg:ml-3">Büyük</span>
         </label>
       </div>
     </div>

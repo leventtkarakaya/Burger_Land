@@ -7,6 +7,7 @@ import CardProvider from "@/CreateContex/CreateContex";
 import CartMobileIcon from "@/components/CartMobileIcon";
 import Nav from "@/components/Nav";
 import CartMobile from "@/components/CartMobile";
+import CartDesktop from "@/components/CartDesktop";
 
 const Banger = Bangers({
   subsets: ["latin"],
@@ -39,9 +40,10 @@ export default function RootLayout({ children }) {
           className={`${QuickSand.variable} ${RobotoCondensed.variable} ${Banger.variable}`}
         >
           <Nav />
-          {children}
           <CartMobileIcon />
           <CartMobile />
+          {children}
+          <CartDesktop />
         </body>
       </html>
     </CardProvider>

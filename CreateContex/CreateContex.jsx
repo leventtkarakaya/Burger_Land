@@ -11,9 +11,7 @@ const CardProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   // add to cart
   const AddToCart = (id, image, name, price, souceAdditional, size, crust) => {
-    // alphabetical sorting
     souceAdditional.sort((a, b) => a.name.localeCompare(b.name));
-    // new item
     const newItem = {
       id,
       image,
@@ -24,7 +22,22 @@ const CardProvider = ({ children }) => {
       crust,
       amount: 1,
     };
-    setCart([...cart, newItem]);
+    const foundIndex = cart.findIndex(
+      (item) =>
+        item.id === id &&
+        item.price === price &&
+        item.size === size &&
+        JSON.stringify(item.souceAdditional) ===
+          JSON.stringify(souceAdditional) &&
+        item.crust === crust
+    );
+    if (foundIndex !== -1) {
+      const newCart = [...cart];
+      newCart[foundIndex].amount += 1;
+      setCart(newCart);
+    } else {
+      setCart([...cart, newItem]);
+    }
   };
   console.log(cart);
   return (

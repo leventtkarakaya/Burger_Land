@@ -14,7 +14,7 @@ const CartMobileIcon = () => {
       <BsHandbagFill className="text-4xl" />
       {/* amount */}
       <span className="absolute flex items-center justify-center w-5 h-5 text-white rounded-full bottom-3 right-3 gradient">
-        5
+        2
       </span>
     </div>
   );

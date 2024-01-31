@@ -1,7 +1,7 @@
 import React from "react";
 
 const CheckoutDetails = () => {
-  return <div></div>;
+  return <div>Sivas</div>;
 };
 
 export default CheckoutDetails;
