@@ -1,11 +1,16 @@
+import { useContext } from "react";
+// Context
+import { CartContext } from "@/CreateContex/CreateContex";
+// image
 import Image from "next/image";
-
+// Plus & Minus icon
 import { BiMinus, BiPlus } from "react-icons/bi";
-
+// X icon
 import { IoCloseOutline } from "react-icons/io5";
 
 const CartItem = ({ burger }) => {
-  console.log(burger.souceAdditional);
+  const { removeItem, decreaseAmount, increaseAmount } =
+    useContext(CartContext);
   return (
     <div className="container select-none">
       <div className="flex py-2 mb-2 gap-x-4">
@@ -34,13 +39,19 @@ const CartItem = ({ burger }) => {
             </div>
             {/* controls */}
             <div className="flex items-center gap-x-2">
-              <div className="w-[18px] h-[18px] flex justify-center items-center cursor-pointer text-white rounded-full gradient">
+              <div
+                onClick={() => decreaseAmount(burger.id, burger.price)}
+                className="w-[18px] h-[18px] flex justify-center items-center cursor-pointer text-white rounded-full gradient"
+              >
                 <BiMinus />
               </div>
               <div className="font-semibold flex flex-1 max-w-[30px] justify-center items-center text-lg">
                 {burger.amount}
               </div>
-              <div className="w-[18px] h-[18px] flex justify-center items-center cursor-pointer text-white rounded-full gradient">
+              <div
+                onClick={() => increaseAmount(burger.id, burger.price)}
+                className="w-[18px] h-[18px] flex justify-center items-center cursor-pointer text-white rounded-full gradient"
+              >
                 <BiPlus />
               </div>
             </div>
@@ -48,7 +59,10 @@ const CartItem = ({ burger }) => {
         </div>
         {/* remove item */}
         <div className="flex flex-col justify-between">
-          <div className="flex items-center self-end justify-center text-2xl text-orange-300 transition-all duration-100 cursor-pointer hover:scale-110">
+          <div
+            onClick={() => removeItem(burger.id, burger.price, burger.crust)}
+            className="flex items-center self-end justify-center text-2xl text-orange-300 transition-all duration-100 cursor-pointer hover:scale-110"
+          >
             <IoCloseOutline />
           </div>
           {/* price */}
