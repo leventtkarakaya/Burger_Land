@@ -30,7 +30,7 @@ const Buger = ({ burger }) => {
 
   return (
     <section>
-      <div className="group py-2 px-4 xl:py-4 xl:px-2 rounded-xl">
+      <div className="px-4 py-2 group xl:py-4 xl:px-2 rounded-xl">
         <Image
           onClick={openModal}
           src={burger.image}
@@ -56,26 +56,26 @@ const Buger = ({ burger }) => {
         {/* price & btn */}
         <div
           onClick={openModal}
-          className="mb-6 flex items-center justify-between text-red-400"
+          className="flex items-center justify-between mb-6 text-red-400"
         >
           {/* price => hidden (sm) - visible (lg) */}
           <div
             onClick={openModal}
-            className="hidden lg:flex text-xl font-semibold"
+            className="hidden text-xl font-semibold lg:flex"
           >
             Başlayan {burger.priceSm}
           </div>
           {/* btn => hidden (sm) - visible (lg  ) */}
           <button
             onClick={openModal}
-            className="hidden-btn lg:flex gradient text-white rounded-lg btn-sm font-semibold text-sm"
+            className="text-sm font-semibold text-white rounded-lg hidden-btn lg:flex gradient btn-sm"
           >
             Terçih {burger.priceSm}
           </button>
           {/* btn => visible (sm) - hidden (lg) */}
           <button
             onClick={openModal}
-            className="btn btn-sm gradient lg:hidden w-full text-sm px-3"
+            className="w-full px-3 text-sm btn btn-sm gradient lg:hidden"
           >
             Başlayan : {burger.priceSm}
           </button>
@@ -90,12 +90,12 @@ const Buger = ({ burger }) => {
       >
         {/* close modal icons */}
         <div
-          className="absolute right-2 top-2 z-30 hover:scale-110 cursor-pointer duration-200"
+          className="absolute z-30 duration-200 cursor-pointer right-2 top-2 hover:scale-110"
           onClick={closeModal}
         >
           <IoCloseOutline className="text-4xl text-red-600" />
         </div>
-        <BurgerDetails burger={burger} />
+        <BurgerDetails burger={burger} setModal={setModal} />
       </Modal>
     </section>
   );

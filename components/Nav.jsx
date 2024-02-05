@@ -30,7 +30,9 @@ const Nav = () => {
           </div>
           {/* cart */}
           <div
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
             className="relative hidden cursor-pointer lg:flex"
           >
             <Image src={"/bag.svg"} alt="sepet" width={40} height={40} />

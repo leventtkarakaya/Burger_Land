@@ -17,7 +17,7 @@ const ModalStyle = {
   },
 };
 const CartBottom = () => {
-  const { isOpen, setIsOpen, cart } = useContext(CartContext);
+  const { isOpen, setIsOpen, cart, cartTotal } = useContext(CartContext);
   // Modal state
   const [modal, setModal] = useState(false);
   // Open Modal
@@ -35,7 +35,7 @@ const CartBottom = () => {
           {/* Total price */}
           <div className="flex items-center justify-between mb-6 text-lg font-semibold font-robotoCondensed">
             <div>Toplam:</div>
-            <div>320 TL</div>
+            <div>{parseFloat(cartTotal).toFixed(2)} TL</div>
           </div>
           {/* btn */}
           <div className="flex flex-col gap-y-3">
@@ -67,6 +67,7 @@ const CartBottom = () => {
           <div className="absolute text-3xl text-red-500 transition-all duration-200 cursor-pointer top-2 right-2 hover:scale-110 ">
             <IoCloseOutline onClick={() => CloseModal()} />
           </div>
+          <CheckoutDetails setModal={setModal} />
         </Modal>
       )}
     </>

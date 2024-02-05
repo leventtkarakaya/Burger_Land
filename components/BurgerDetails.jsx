@@ -7,8 +7,7 @@ import CrustSelections from "@/components/CrustSelections";
 import SizeSelections from "./SizeSelections";
 import Souce from "./Souce";
 
-const BurgerDetails = ({ burger, modal, setModal }) => {
-  const { isOpen } = useContext(CartContext);
+const BurgerDetails = ({ burger, setModal }) => {
   // size state
   const [size, setSize] = useState("Küçük");
   // crust state
@@ -105,7 +104,8 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
         {/* add to cart btn */}
         <div className="flex items-center h-full px-2 lg:items-end">
           <button
-            onClick={() =>
+            onClick={() => {
+              setModal(false);
               AddToCart(
                 burger.id,
                 burger.image,
@@ -114,8 +114,8 @@ const BurgerDetails = ({ burger, modal, setModal }) => {
                 souceAdditional,
                 size,
                 crust
-              )
-            }
+              );
+            }}
             className="flex justify-center w-full btn btn-lg gradient gap-x-2"
           >
             <div>Sepete ekle:</div>

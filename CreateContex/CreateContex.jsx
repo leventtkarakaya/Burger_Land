@@ -21,6 +21,12 @@ const CardProvider = ({ children }) => {
     setItemAmount(newItem);
   }, [setCartTotal, cart]);
 
+  useEffect(() => {
+    const price = cart.reduce((a, b) => {
+      return a + Number(b.price) * b.amount;
+    }, 0);
+    setCartTotal(price);
+  }, [setCartTotal, cart]);
   // add to cart
   const AddToCart = (id, image, name, price, souceAdditional, size, crust) => {
     souceAdditional.sort((a, b) => a.name.localeCompare(b.name));
@@ -97,6 +103,8 @@ const CardProvider = ({ children }) => {
         increaseAmount,
         decreaseAmount,
         itemAmount,
+        cartTotal,
+        setCart,
       }}
     >
       {children}
